@@ -1,52 +1,79 @@
-# auth-frontend
+# 🔐 auth-frontend
 
-A React + Vite authentication frontend application with Tailwind CSS styling. This project includes login/signup pages, dashboard routing, protected routes, and an admin section.
+Production-ready authentication frontend built with React, Vite, Tailwind CSS, and secure routing.
 
-## Features
+## 🚀 What’s Included
 
-- React 18 with functional components
-- Vite development environment
-- Tailwind CSS styling
-- React Router DOM navigation
-- Authentication context and protected routes
-- Admin dashboard support
-- Axios for API calls
-- Toast notifications with `react-hot-toast`
+- ✅ React 18 + Vite   
+- ✅ Tailwind CSS styling
+- ✅ Client-side auth flow with protected routes
+- ✅ Admin-only dashboard access
+- ✅ Axios API integration
+- ✅ Toast notifications with `react-hot-toast`
+- ✅ Theme support via context
 
-## Requirements
+## 📁 Project Structure
 
-- Node.js 18+ (or compatible LTS version)
+```
+auth-frontend/
+├── src/
+│   ├── api/
+│   │   ├── admin.js
+│   │   └── auth.js
+│   ├── components/
+│   │   ├── AdminRoute.jsx
+│   │   ├── ProtectedRoute.jsx
+│   │   ├── UI.jsx
+│   │   └── admin/UserDetailModal.jsx
+│   ├── context/
+│   │   ├── AuthContext.jsx
+│   │   └── ThemeContext.jsx
+│   ├── pages/
+│   │   ├── AuthPage.jsx
+│   │   ├── DashboardPage.jsx
+│   │   ├── LoginPage.jsx
+│   │   ├── SignupPage.jsx
+│   │   └── admin/AdminDashboard.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── package.json
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
+└── README.md
+```
+
+## 🔧 Requirements
+
+- Node.js 18+ or compatible LTS
 - npm or yarn
 
-## Installation
+## 💾 Installation
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd auth-frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-   or
-   ```bash
-   yarn install
-   ```
+```bash
+git clone <repository-url>
+cd auth-frontend
+npm install
+```
 
-## Development
+or with Yarn:
 
-Run the Vite development server:
+```bash
+yarn install
+```
+
+## ▶️ Development
+
+Start the local development server:
 
 ```bash
 npm run dev
 ```
 
-Open the local development URL shown in the terminal.
+## 📦 Build
 
-## Build
-
-Build the production bundle:
+Generate a production build:
 
 ```bash
 npm run build
@@ -58,37 +85,47 @@ Preview the production build locally:
 npm run preview
 ```
 
-## Project Structure
+## 🔐 Authentication Flow
 
-- `src/`
-  - `App.jsx` - Root app component and routes
-  - `main.jsx` - Application entry file
-  - `index.css` - Global styles
-  - `api/` - API request utilities
-    - `admin.js`
-    - `auth.js`
-  - `components/` - Reusable UI and route components
-    - `AdminRoute.jsx`
-    - `ProtectedRoute.jsx`
-    - `UI.jsx`
-    - `admin/UserDetailModal.jsx`
-  - `context/` - React context providers
-    - `AuthContext.jsx`
-    - `ThemeContext.jsx`
-  - `pages/` - Application pages
-    - `AuthPage.jsx`
-    - `DashboardPage.jsx`
-    - `LoginPage.jsx`
-    - `SignupPage.jsx`
-    - `admin/AdminDashboard.jsx`
+- Sign up / sign in pages
+- Protected dashboard route
+- Admin-only route control via `AdminRoute`
+- Auth state persisted in React Context
+- API calls handled through `src/api/auth.js` and `src/api/admin.js`
 
-## Scripts
+## 🧩 API Integration
 
-- `npm run dev` - Start development server
-- `npm run build` - Build production files
-- `npm run preview` - Preview production build locally
+The frontend expects a backend authentication API with endpoints similar to:
 
-## Dependencies
+- `POST /api/auth/signup`
+- `POST /api/auth/signin`
+- `POST /api/auth/refresh-token`
+- `POST /api/auth/signout`
+- `GET /api/auth/me`
+- `GET /api/admin/users`
+- `PATCH /api/admin/users/:id/role`
+- `PATCH /api/admin/users/:id/status`
+- `DELETE /api/admin/users/:id`
+
+Update the request URLs in `src/api/auth.js` and `src/api/admin.js` as needed.
+
+## 💡 Password Requirements
+
+This frontend assumes strong password validation from the backend. Recommended rules:
+
+- Minimum 8 characters
+- At least one uppercase letter (A-Z)
+- At least one lowercase letter (a-z)
+- At least one number (0-9)
+- At least one special character (@$!%*?&#^)
+
+## 🧪 Scripts
+
+- `npm run dev` — Start Vite development server
+- `npm run build` — Build production assets
+- `npm run preview` — Preview production build locally
+
+## 📦 Dependencies
 
 - `react`
 - `react-dom`
@@ -97,7 +134,7 @@ npm run preview
 - `react-hot-toast`
 - `lucide-react`
 
-## Dev Dependencies
+## 🧰 Dev Dependencies
 
 - `vite`
 - `@vitejs/plugin-react`
@@ -105,6 +142,6 @@ npm run preview
 - `postcss`
 - `autoprefixer`
 
-## Notes
+## 📌 Notes
 
-This repository is configured as a private frontend app with no backend included. Update API endpoints in `src/api/auth.js` and `src/api/admin.js` as needed for your authentication backend.
+This repository contains only the frontend client. The backend authentication API must be implemented separately. Update environment values, API hosts, and auth endpoints in `src/api` as needed.`

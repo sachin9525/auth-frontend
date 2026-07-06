@@ -1,0 +1,38 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# build output
+/dist
+/build
+
+# environment variables
+.env
+.env.*
+!.env.example
+
+# local config files
+.vscode/
+.idea/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# misc
+.coverage
+/.cache
+/.turbo
+
+# editor temporary files
+*.tmp
+*.temp

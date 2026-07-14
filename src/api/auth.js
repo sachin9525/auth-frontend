@@ -1,7 +1,13 @@
 import axios from "axios";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD
+    ? "https://auth-backend-dqzj.onrender.com/api"
+    : "/api");
+
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: API_BASE_URL,
   withCredentials: true, // send cookies (refreshToken)
 });
 
@@ -38,7 +44,7 @@ api.interceptors.response.use(
       isRefreshing = true;
       try {
         const { data } = await axios.post(
-          "/api/auth/refresh-token",
+          `${API_BASE_URL}/auth/refresh-token`,
           {},
           { withCredentials: true },
         );

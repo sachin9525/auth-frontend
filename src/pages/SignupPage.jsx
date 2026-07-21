@@ -79,7 +79,7 @@ export default function SignupPage() {
             </div>
             <div>
               <h2 className="text-xl font-bold text-slate-900 dark:text-white">
-                Check your inbox!
+                Open your email
               </h2>
               <p className="text-slate-400 dark:text-slate-400 text-sm mt-2">
                 We sent a verification link to{" "}
@@ -88,7 +88,7 @@ export default function SignupPage() {
             </div>
             <div className="bg-slate-50 dark:bg-dark-600 border border-slate-300 dark:border-dark-400 rounded-xl p-4 text-sm text-slate-400 dark:text-slate-400 text-left space-y-2">
               <p className="text-slate-700 dark:text-slate-300 font-medium">Next steps:</p>
-              <p>1. Open Mailtrap (or your email)</p>
+              <p>1. Open your email inbox</p>
               <p>2. Click the verification link</p>
               <p>3. Come back and sign in</p>
             </div>

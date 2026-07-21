@@ -10,7 +10,7 @@ export default function AdminRoute({ children }) {
         <Loader2 className="w-8 h-8 text-brand animate-spin" />
       </div>
     );
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) return <Navigate to="/admin/login" replace />;
   if (user.role !== "admin") return <Navigate to="/dashboard" replace />;
   return children;
 }

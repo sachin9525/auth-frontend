@@ -34,6 +34,26 @@ export const AuthProvider = ({ children }) => {
     return user;
   }, []);
 
+  const adminLogin = useCallback(async (email, password) => {
+    const res = await authApi.signin({ email, password });
+    const { accessToken, user } = res.data.data;
+
+    if (user.role !== "admin") {
+      try {
+        await authApi.signout();
+      } catch (_) {}
+      localStorage.removeItem("accessToken");
+      setUser(null);
+      const error = new Error("Admin access only");
+      error.code = "ADMIN_ONLY";
+      throw error;
+    }
+
+    localStorage.setItem("accessToken", accessToken);
+    setUser(user);
+    return user;
+  }, []);
+
   const logout = useCallback(async () => {
     try {
       await authApi.signout();
@@ -45,7 +65,9 @@ export const AuthProvider = ({ children }) => {
   const updateUser = useCallback((u) => setUser(u), []);
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout, updateUser }}>
+    <AuthContext.Provider
+      value={{ user, loading, login, adminLogin, logout, updateUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

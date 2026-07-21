@@ -146,7 +146,7 @@ export function ForgotPasswordPage() {
               <Mail className="w-8 h-8 text-brand" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white">Check your inbox</h2>
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white">Open your email</h2>
               <p className="text-slate-400 dark:text-slate-400 text-sm mt-2">
                 If <span className="text-slate-900 dark:text-white font-medium">{email}</span> has
                 an account, a reset link has been sent.
@@ -156,7 +156,7 @@ export function ForgotPasswordPage() {
               <p className="text-slate-700 dark:text-slate-300 font-medium text-xs uppercase tracking-wider">
                 Instructions
               </p>
-              <p className="text-xs">• Open Mailtrap or your email client</p>
+              <p className="text-xs">• Open your email inbox</p>
               <p className="text-xs">
                 • Click the reset link (valid for 1 hour)
               </p>
